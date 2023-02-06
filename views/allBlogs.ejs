@@ -40,10 +40,10 @@
   <script src="/assets/vendor/js/helpers.js"></script>
 
   <script src="/assets/js/config.js"></script>
-  <script src="../assets/vendor/libs/jquery/jquery.js"></script>
-  
+  <script src="/assets/vendor/libs/jquery/jquery.js"></script>
+
 </head>
-  
+
 <body>
   <!-- Layout wrapper -->
   <div class="layout-wrapper layout-content-navbar">
@@ -77,9 +77,10 @@
                           <div class="card-img-top m-0 me-2">
                             <img src="<%= res[i].blogImage %>" class="img
                               img-fluid w-100" alt="">
-                              <a href="renderUpdateImage/<%= res[i]._id %>">
-                                <i class="bx bx-sm bx-pencil "></i> <small class=" text-primary mx-1 updateBlogDetails" value="<%= res[i]._id %>">EDIT IMAGE</small>
-                              </a>
+                            <a href="renderUpdateImage/<%= res[i]._id %>">
+                              <i class="bx bx-sm bx-pencil "></i> <small class=" text-primary mx-1 updateBlogDetails"
+                                value="<%= res[i]._id %>">EDIT IMAGE</small>
+                            </a>
                           </div>
                         </div>
                         <div class="card-body">
@@ -111,11 +112,10 @@
                                           justify-content-between
                                           gap-2">
                                 <div class="me-2">
-                                  <h6 class="mb-0 myDesc">
-                                    <h6 class="mb-0 myDesc" style="width:160px; text-overflow: ellipsis; overflow: hidden; white-space: nowrap; ">
-                                      <%= res[i].description %>
-                                    </h6>
-                                    <!-- <%= res[i].description %> -->
+                                  <h6 class="mb-0 myDesc"
+                                    style="overflow: hidden; width: 300px;  white-space: nowrap; height: 35px;text-overflow: ellipsis;">
+                                    <%= res[i].description %>
+                                      <!-- <%= res[i].description %> -->
                                   </h6>
                                 </div>
                               </div>
@@ -135,8 +135,8 @@
 
                           </ul>
                           <a href="/admin/adminBlog/<%= res[i]._id %>/<%= res[i].slug %>">
-                                <p class=" mx-1 " value="<%= res[i]._id %>">Read more &rarr;</p>
-                            </a>
+                            <p class=" mx-1 " value="<%= res[i]._id %>">Read more &rarr;</p>
+                          </a>
                         </div>
                       </div>
                     </div>

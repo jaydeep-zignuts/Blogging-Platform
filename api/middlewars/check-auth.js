@@ -1,4 +1,5 @@
 const jwt= require('jsonwebtoken');
+const router = require("express").Router();
 module.exports=(req, res, next)=>{
     try{
         const token=req.cookies.access_token;
@@ -8,9 +9,7 @@ module.exports=(req, res, next)=>{
         req.userData=decoded;
         next();
     }catch(error){
-        return res.status(401).json({
-            message:'Auth Failed '
-        });
+        return res.status(401).render('login');
     }
         
 }

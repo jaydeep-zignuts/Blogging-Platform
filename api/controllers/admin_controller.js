@@ -298,7 +298,7 @@ exports.renderUpdateBlog = (req, res, next) => {
         .select("category _id")
         .exec()
         .then((categ) => {
-          res.render("updateBlog", { res: doc, cat: categ });
+          res.render("updateBlog", { res: doc, cat: categ, errors:undefined });
         });
     })
     .catch((err) => {
@@ -318,7 +318,7 @@ exports.updateBlog = (req, res, next) => {
   const errors = req.validationErrors();
   if (errors) {
 
-    res.status(400).render({ errors: errors });
+    res.status(400).render('updateBlog',{ errors: errors });
   } else {
     let myquery = { _id: req.params._id };
     let newvalues = {
