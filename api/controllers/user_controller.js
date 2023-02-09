@@ -43,12 +43,15 @@ exports.user_getall_blog = (req, res, next) => {
       });
   }
 
-  exports.searchBlog = (req, res, next) => {
-    const search=req.query.searchValue;
-    console.log(search);
-    Blog.find()
-      .select("_id title slug category description publish_date blogImage").
-      where({title:search})
+  exports.searchBlog =  (req, res, next) => {
+    
+     Blog.find({
+      "$or" : [
+        { title : {$regex : req.query.searchValue}}  
+    ]
+    })
+      .select("_id title slug category description publish_date blogImage")
+      //.where({title:search})
       .exec()
       .then((docs) => {
         console.log(docs);
@@ -61,5 +64,8 @@ exports.user_getall_blog = (req, res, next) => {
           error: err,
         });
       });
+
+       
+
   }
   
